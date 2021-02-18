@@ -41,4 +41,8 @@ for($i = 1; $i <= 3; $i++) {
 	</div>
 	
 </body>
+<<<<<<< HEAD
 </html>
+=======
+</html>
+>>>>>>> 5a3c8f56b54642f54359f3b0e67ea5cf18b6cbd5
