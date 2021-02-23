@@ -15,11 +15,11 @@
                 return "you must enter a number for specNum ($specNum)";
             }
 
-            $buffer = "<label for = "
+            $buffer = "<label for = ";
             for (i = 1; i <= $famNum; i++) {
-                $buffer .= "$subfam . > $subfam:</label> <br /> <select name = \"$subfam\" font-family = \"Veranda\">";
+                $buffer .= "$subfam> $subfam:</label> <br /> <select name = \"$subfam\" font-family = \"Veranda\">";
                 for (i = 1; i <= $specNum; i++) {
-                    $buffer .= "<option value = \"$species\"> $species</option>"
+                    $buffer .= "<option value = \"$species\"> $species</option>";
                 }
             }
             }
