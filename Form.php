@@ -3,16 +3,22 @@
 
 $text = "";
 $list = "";
+$strtokTest = "";
+$names = [];
+$names[0] = "Placeholder";
+$names[1] = "Placeholder 2";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $enterName = "";
-    if(isset($_REQUEST['enterName'])) $enterName = $_REQUEST['enterName'];
-    if(isset($_REQUEST['list'])) $list = $_REQUEST['list'];
+    if($_REQUEST['addName']) {
+        //for ($i = 0; $i < 2; $i++) {
+            list($fName, $lName) = explode(" ", $_REQUEST['enterName']);
+        //}
+        
+        //list($fName, $lName) = split(' ', $_REQUEST['enterName'], 2);
 
-    if(isset($_REQUEST['addName'])) {
-        $text = $list . "\n" . $_REQUEST['enterName'];
-    };
-    if(isset($_REQUEST['clearNames'])) {
+        $text = $_REQUEST['lastlist'] . $lName . ", " . $fName . "\n";
+    }
+    if ($_REQUEST['clearName']) {
         $text = "";
     }
 }
@@ -21,41 +27,32 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 <html>
     <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
+    <!-- Required meta tags
+    <meta charset="utf-8"> -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
-        <title>
-        Add Names
-        </title>
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous"/>
     </head>
     <body style="padding:30px">
-        <form method="POST" action="/Form.php">
-            <div class="mb-3">
-                <input type = "submit" name = "addName" value = "Add Name"/>
-                <input type = "submit" name = "clearNames" value = "Clear Names"/>
-            </div>
-            <div>
-                <div class="mb-3">
-                    Enter name
-                    <input type = "text" name = enterName class="form-control"/>
-                </div>
-                <div class="mb-3">
-                    List of Names
-                    <textarea name = "lastlist" 
-                        rows = "15" cols = "50" 
-                        disabled class="form-control" 
-                    ><?php echo $list ?></textarea>
-                </div>
-                <div class="mb-3">
-                    List of Names
-                    <textarea name = "list" 
-                        rows = "15" cols = "50" 
-                         class="form-control" 
-                    ><?php echo $text ?></textarea>
-                </div>
-            </div>
-        </form>
+        <header>
+        </header>
+            <form method="POST" action="/Form.php" >
+                <h1>
+                    Add Names
+                </h1>
+                <p>
+                    <label for = "Add Name"></label>
+                    <input type = "submit" name = "addName" value = "Add Name" class="btn btn-primary mb-3"/>
+                    <label for = "Clear Names"></label>
+                    <input type = "submit" name = "clearName" value = "Clear Names" class="btn btn-primary mb-3"/>
+                </p>
+                <p>
+                    <label for = "name">Enter name</label>
+                    <input type = "text" name = enterName class="form-control"></input>
+                </p>
+                <p>
+                    <label for = "name list">List of Names</label>
+                    <textarea name = "lastlist" rows = "15" cols = "50" class="form-control" readonly> <?php print_r($text) ?> </textarea>
+                </p>
+            </form>
     </body>
 </html>
