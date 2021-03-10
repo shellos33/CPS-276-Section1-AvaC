@@ -27,8 +27,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 <html>
     <head>
-    <!-- Required meta tags
-    <meta charset="utf-8"> -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous"/>
     </head>
@@ -41,9 +39,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 </h1>
                 <p>
                     <label for = "Add Name"></label>
-                    <input type = "submit" name = "addName" value = "Add Name" class="btn btn-primary mb-3"/>
+                    <input type = "submit" name = "addName" value = "Add Name" class = "btn btn-primary mb-3"/>
                     <label for = "Clear Names"></label>
-                    <input type = "submit" name = "clearName" value = "Clear Names" class="btn btn-primary mb-3"/>
+                    <input type = "submit" name = "clearName" value = "Clear Names" class  ="btn btn-primary mb-3"/>
                 </p>
                 <p>
                     <label for = "name">Enter name</label>
