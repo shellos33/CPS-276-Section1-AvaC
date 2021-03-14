@@ -49,7 +49,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 </p>
                 <p>
                     <label for = "name list">List of Names</label>
-                    <textarea name = "lastlist" rows = "15" cols = "50" class="form-control" readonly> <?php print_r($text) ?> </textarea>
+                    <textarea name = "lastlist" rows = "15" cols = "50" class = "form-control" readonly> <?php print_r($text) ?> </textarea>
                 </p>
             </form>
     </body>
